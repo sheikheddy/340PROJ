@@ -6,7 +6,9 @@ This is a mini-project where we find the connected components of a graph using p
 ## Authors
 
 Sheikh Abdur Raheem Ali
+
 Beesan Ayman Amin Hussain
+
 Anas Kamlani
 
 ## Usage
