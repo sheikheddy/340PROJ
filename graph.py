@@ -20,6 +20,14 @@ def buildG(G, file_, delimiter_):
         if float(line[2]) != 0.0:
             G.add_edge(int(line[0]),int(line[1]),weight=float(line[2]))
 
+# Adjacency list representation of a graph            
+graph = {'A': set(['B', 'C']),
+         'B': set(['A', 'D', 'E']),
+         'C': set(['A', 'F']),
+         'D': set(['B']),
+         'E': set(['B', 'F']),
+         'F': set(['C', 'E'])}
+
 def main():
     graph_fn="tempset3.txt";
     G = nx.Graph()  #let's create the graph first
@@ -36,6 +44,24 @@ def main():
     comps=nx.connected_components(G)
     for comp in comps:
         print(comp)
+        
+
+def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    for next in graph[start] - visited:
+        dfs(graph, next, visited)
+    return visited
+
+def bfs(graph, start):
+    visited, queue = set(), [start]
+    while queue:
+        vertex = queue.pop(0)
+        if vertex not in visited:
+            visited.add(vertex)
+            queue.extend(graph[vertex] - visited)
+    return visited
 
 if __name__ == "__main__":
     main()
