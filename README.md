@@ -11,7 +11,8 @@ Anas Kamlani
 
 ## Usage
 
-Just run python3 graph.py to start the program
+Just run `python3 graph.py` to start the program. Alternatively, use your favorite IDE.
+
 If you'd like to modify the graph, edit tempset3.txt (each entry is in the format source, dest, weight)
 
 ## Contact
