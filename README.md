@@ -3,13 +3,12 @@ CMP 340 Database Systems Group Project
 
 This is a mini-project where we find the connected components of a graph using python.
 
-The DFS implementations is from [this website](https://www.geeksforgeeks.org/connected-components-in-an-undirected-graph/). We assume an undirected unweighted graph with an adjacency list representation. We plan to add BFS support soon. 
+The DFS implementations is from [this website](https://www.geeksforgeeks.org/connected-components-in-an-undirected-graph/). We assume an undirected unweighted graph with an adjacency list representation. The BFS implementation is based on pseudocode from [this wikipedia article](https://en.wikipedia.org/wiki/Breadth-first_search) 
 
 ## TODO
 
  - Add graph generator
  - Insert counters
- - Add BFS traversal
  - Analyze efficiency of algorithms
 
 ## Authors

@@ -32,8 +32,20 @@ class Graph:
                 temp = self.DFSUtil(temp, i, visited) 
         return temp 
     
-    def BFSUtil(self, temp, v):
-        #TODO: implement this
+    def BFSUtil(self, temp, v, visited):
+        Q = []
+        visited[v] = True
+        Q.append(v)
+        temp.append(v)
+        while Q:
+            v = Q.pop()
+            for i in self.adj[v]:
+                if visited[i] == False:
+                    visited[i] = True
+                    Q.append(i)
+                    temp.append(i)
+        return temp
+                    
         return None
     # method to add an undirected edge 
     def addEdge(self, v, w): 
@@ -53,7 +65,7 @@ class Graph:
                 if kind == 'DFS':
                     cc.append(self.DFSUtil(temp, v, visited)) 
                 elif kind == 'BFS':
-                    cc.append(self.BFSUtil(temp, v))
+                    cc.append(self.BFSUtil(temp, v, visited))
         return cc 
   
 # Driver Code 
@@ -65,7 +77,7 @@ if __name__=="__main__":
     g.addEdge(1, 0) 
     g.addEdge(2, 3) 
     g.addEdge(3, 4) 
-    cc = g.connectedComponents(kind='DFS') 
+    cc = g.connectedComponents(kind='BFS') 
     print("Following are connected components") 
     print(cc) 
   
