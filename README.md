@@ -23,8 +23,6 @@ Anas Kamlani
 
 Just run `python3 graph.py` to start the program. Alternatively, use your favorite IDE.
 
-If you'd like to modify the graph, edit tempset3.txt (each entry is in the format source, dest, weight)
-
 ## Contact
 
 Please reach me at ali@abdur-raheem.com if you have any questions about the code.
