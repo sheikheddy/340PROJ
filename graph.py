@@ -73,11 +73,8 @@ class Graph:
   
 # Driver Code 
 if __name__=="__main__": 
-      
-    # Create a graph given in the above diagram 
-    # 5 vertices numbered from 0 to 4 
-    SIZE = 10000 # Vertices
     seed(0)
+    SIZE = 10000 # Vertices
     g = Graph(SIZE); 
     E = 30000 #No. of Edges
     for i in range(E):
