@@ -6,6 +6,9 @@ Created on Tue Dec  3 18:21:54 2019
 @author: sheikh
 """
 
+from random import seed
+from random import randrange
+
 # Python program to print connected  
 # components in an undirected graph 
 class Graph: 
@@ -73,11 +76,14 @@ if __name__=="__main__":
       
     # Create a graph given in the above diagram 
     # 5 vertices numbered from 0 to 4 
-    g = Graph(5); 
-    g.addEdge(1, 0) 
-    g.addEdge(2, 3) 
-    g.addEdge(3, 4) 
+    SIZE = 10000 # Vertices
+    seed(0)
+    g = Graph(SIZE); 
+    E = 30000 #No. of Edges
+    for i in range(E):
+        g.addEdge(randrange(SIZE), randrange(SIZE))
     cc = g.connectedComponents(kind='BFS') 
-    print("Following are connected components") 
-    print(cc) 
+    print("Connected components:") 
+    for component in cc:
+        print(component)
   

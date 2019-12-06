@@ -7,9 +7,9 @@ The DFS implementations is from [this website](https://www.geeksforgeeks.org/con
 
 ## TODO
 
- - Add graph generator
  - Insert counters
  - Analyze efficiency of algorithms
+ - Write report
 
 ## Authors
 
@@ -17,7 +17,7 @@ Sheikh Abdur Raheem Ali
 
 Beesan Ayman Amin Hussain
 
-Anas Kamlani
+Anas Arif Kamlani
 
 ## Usage
 
