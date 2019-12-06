@@ -1,15 +1,16 @@
 CMP 340 Database Systems Group Project
 ======================================
 
-This is a mini-project where we find the connected components of a graph using python. It currently uses the networkx library, but we plan to remove this dependency and change to explicit DFS and BFS soon. It is based off of [this stackoverflow question](https://stackoverflow.com/questions/26317775/print-connected-components-of-a-graph-in-python).
+This is a mini-project where we find the connected components of a graph using python.
 
-The BFS and DFS implementations are from [this blog post](https://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/). We assume an undirected unweighted graph with an adjacency list representation. 
+The DFS implementations is from [this website](https://www.geeksforgeeks.org/connected-components-in-an-undirected-graph/). We assume an undirected unweighted graph with an adjacency list representation. We plan to add BFS support soon. 
 
 ## TODO
 
  - Add graph generator
+ - Insert counters
+ - Add BFS traversal
  - Analyze efficiency of algorithms
- - Currently we can find the entire connected component given a node. The naive way to extend this to finding all connected components in a graph is to repeat BFS/DFS for every node, then find the unique graphs. This is obviously inefficient since if a node belongs to a component discovered before we do not need to run DFS/BFS again. I remember reading an elegant solution to this in a book and will try to find it. It probably involves the discovered flags. Or I could steal it from the networkx source. I haven't decided yet.
 
 ## Authors
 

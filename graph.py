@@ -6,62 +6,66 @@ Created on Tue Dec  3 18:21:54 2019
 @author: sheikh
 """
 
-import networkx as nx
-import matplotlib.pyplot as plt
-#import math
-import csv
-#import random as rand
-import sys
-
-def buildG(G, file_, delimiter_):
-    #construct the weighted version of the contact graph from cgraph.dat file
-    reader = csv.reader(open(file_), delimiter=delimiter_)
-    for line in reader:
-        if float(line[2]) != 0.0:
-            G.add_edge(int(line[0]),int(line[1]),weight=float(line[2]))
-
-# Adjacency list representation of a graph            
-graph = {'A': set(['B', 'C']),
-         'B': set(['A', 'D', 'E']),
-         'C': set(['A', 'F']),
-         'D': set(['B']),
-         'E': set(['B', 'F']),
-         'F': set(['C', 'E'])}
-
-def main():
-    graph_fn="tempset3.txt";
-    G = nx.Graph()  #let's create the graph first
-    buildG(G, graph_fn, ',')
-
-    print(G.nodes())
-    print(G.number_of_nodes())
-
-    #nx.draw(G)
-    #plt.show(G)
-
-    n = G.number_of_nodes()
-    print ("no of nodes: ", n)
-    comps=nx.connected_components(G)
-    for comp in comps:
-        print(comp)
-        
-
-def dfs(graph, start, visited=None):
-    if visited is None:
-        visited = set()
-    visited.add(start)
-    for next in graph[start] - visited:
-        dfs(graph, next, visited)
-    return visited
-
-def bfs(graph, start):
-    visited, queue = set(), [start]
-    while queue:
-        vertex = queue.pop(0)
-        if vertex not in visited:
-            visited.add(vertex)
-            queue.extend(graph[vertex] - visited)
-    return visited
-
-if __name__ == "__main__":
-    main()
+# Python program to print connected  
+# components in an undirected graph 
+class Graph: 
+      
+    # init function to declare class variables 
+    def __init__(self,V): 
+        self.V = V 
+        self.adj = [[] for i in range(V)] 
+  
+    def DFSUtil(self, temp, v, visited): 
+  
+        # Mark the current vertex as visited 
+        visited[v] = True
+  
+        # Store the vertex to list 
+        temp.append(v) 
+  
+        # Repeat for all vertices adjacent 
+        # to this vertex v 
+        for i in self.adj[v]: 
+            if visited[i] == False: 
+                  
+                # Update the list 
+                temp = self.DFSUtil(temp, i, visited) 
+        return temp 
+    
+    def BFSUtil(self, temp, v):
+        #TODO: implement this
+        return None
+    # method to add an undirected edge 
+    def addEdge(self, v, w): 
+        self.adj[v].append(w) 
+        self.adj[w].append(v) 
+  
+    # Method to retrieve connected components 
+    # in an undirected graph 
+    def connectedComponents(self, kind): 
+        visited = [] 
+        cc = [] 
+        for i in range(self.V): 
+            visited.append(False) 
+        for v in range(self.V): 
+            if visited[v] == False: 
+                temp = [] 
+                if kind == 'DFS':
+                    cc.append(self.DFSUtil(temp, v, visited)) 
+                elif kind == 'BFS':
+                    cc.append(self.BFSUtil(temp, v))
+        return cc 
+  
+# Driver Code 
+if __name__=="__main__": 
+      
+    # Create a graph given in the above diagram 
+    # 5 vertices numbered from 0 to 4 
+    g = Graph(5); 
+    g.addEdge(1, 0) 
+    g.addEdge(2, 3) 
+    g.addEdge(3, 4) 
+    cc = g.connectedComponents(kind='DFS') 
+    print("Following are connected components") 
+    print(cc) 
+  
